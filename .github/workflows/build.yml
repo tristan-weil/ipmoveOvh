@@ -1,0 +1,39 @@
+---
+
+name: build
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - '!refs/tags/*'
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      max-parallel: 4
+      matrix:
+        goos: [linux, openbsd]
+        goarch: [amd64]
+
+    steps:
+      - name: Install Go
+        uses: actions/setup-go@v2
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Test
+        run: go test ./...
+
+      - name: Build
+        env:
+          GOOS: '${{ matrix.goos }}'
+          GOARCH: '${{ matrix.goarch }}'
+        run: go build -o build/${{ matrix.goos }}-${{ matrix.goarch }}/ipmoveOvh
