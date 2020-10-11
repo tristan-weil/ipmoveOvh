@@ -3,7 +3,7 @@
 *ipmoveOvh* is a simple tool dedicated to move an OVH **FailOver IP** from one 
 instance to another.
 
-[![Actions Status](https://github.com/tristan-weil/ipmoveOvh/workflows/build/badge.svg?branch=master)](https://github.com/tristan-weil/ansible-role-nomad/actions)
+[![Actions Status](https://github.com/tristan-weil/ipmoveOvh/workflows/build/badge.svg?branch=master)](https://github.com/tristan-weil/ipmoveOvh/actions)
 
 ## Configuration
 
